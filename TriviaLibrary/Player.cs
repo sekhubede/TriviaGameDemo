@@ -11,9 +11,10 @@ namespace TriviaLibrary
         public string Name { get; set; }
         public int Score { get; set; }
 
-        public Player(string name) 
+        public Player(string playerName) 
         { 
-            this.Name = name;
+            this.Name = playerName;
+            this.Score = 0;
         }
     }
 }
