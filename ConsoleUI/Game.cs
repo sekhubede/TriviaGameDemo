@@ -36,34 +36,7 @@ Battle your friends for the top score in silly trivia.";
 
             ConsoleUtils.WaitForKey();
 
-            WriteLine(GameTitle);
-            WriteLine();
-
-            string prompt = "What would you like to do?";
-            string[] options = { "Play", "About", "Credits", "Exit" };
-
-            Menu mainMenu = new Menu(prompt, options);
-
-            int selectedIndex = mainMenu.Run();
-
-            switch (selectedIndex)
-            {
-                case 0:
-                    Play();
-                    ConsoleUtils.WaitForKey();
-                    break;
-                case 1:
-                    About();
-                    ConsoleUtils.WaitForKey();
-                    break;
-                case 2:
-                    Credits();
-                    ConsoleUtils.WaitForKey();
-                    break;
-                case 3:
-                    Exit();
-                    break;
-            }
+            Play();
 
        
         }
@@ -78,16 +51,55 @@ Battle your friends for the top score in silly trivia.";
 
         private void Play()
         {
+            Clear();
+            string prompt = @$"{GameTitleArt}
+What would you like to do?";
+            string[] options = { "Play", "About", "Credits", "Exit" };
+
+            Menu mainMenu = new Menu(prompt, options);
+
+            int selectedIndex = mainMenu.Run();
+
+            switch (selectedIndex)
+            {
+                case 0:
+                    Clear();
+                    FirstChoice();
+                    ConsoleUtils.WaitForKey();
+                    break;
+                case 1:
+                    Clear();
+                    About();
+                    ConsoleUtils.WaitForKey();
+                    Play();
+                    break;
+                case 2:
+                    Clear();
+                    Credits();
+                    ConsoleUtils.WaitForKey();
+                    Play();
+                    break;
+                case 3:
+                    Exit();
+                    break;
+            }
+
+        }
+
+
+        private void FirstChoice()
+        {
             Write("What is your name: ");
             string name = ReadLine();
 
-            WriteLine($"Welcome to trivia {name}");
+            WriteLine($"Welcome to Trivia Quest, {name}");
 
         }
 
         private void About()
         {
             WriteLine("About the game...");
+
         }
 
         private void Credits()
