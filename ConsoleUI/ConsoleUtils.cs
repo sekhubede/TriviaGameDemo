@@ -22,6 +22,7 @@ namespace ConsoleUI
 
             WriteLine("\nPress any key to exit...");
             ReadKey(true);
+            Environment.Exit(0);
         }
     }
 }
