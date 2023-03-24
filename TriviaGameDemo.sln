@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33205.214
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleUI", "ConsoleUI\ConsoleUI.csproj", "{727AF47F-0317-4BDE-9B14-BB000FAE3779}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleUI", "ConsoleUI\ConsoleUI.csproj", "{727AF47F-0317-4BDE-9B14-BB000FAE3779}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TriviaLibrary", "TriviaLibrary\TriviaLibrary.csproj", "{A0E58CD9-7FB8-470C-9A27-EB6C566095C5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{727AF47F-0317-4BDE-9B14-BB000FAE3779}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{727AF47F-0317-4BDE-9B14-BB000FAE3779}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{727AF47F-0317-4BDE-9B14-BB000FAE3779}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A0E58CD9-7FB8-470C-9A27-EB6C566095C5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A0E58CD9-7FB8-470C-9A27-EB6C566095C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A0E58CD9-7FB8-470C-9A27-EB6C566095C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A0E58CD9-7FB8-470C-9A27-EB6C566095C5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
