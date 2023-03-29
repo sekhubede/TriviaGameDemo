@@ -7,6 +7,8 @@ using System.Threading.Tasks;
 using TriviaLibrary;
 using MenuLibrary;
 
+using Pastel;
+
 using static System.Console;
 using System.Security.Cryptography.X509Certificates;
 using System.Runtime.InteropServices;
@@ -27,7 +29,7 @@ namespace ConsoleUI
    ██║   ██║  ██║██║ ╚████╔╝ ██║██║  ██║    ╚██████╔╝╚██████╔╝███████╗███████║   ██║   
    ╚═╝   ╚═╝  ╚═╝╚═╝  ╚═══╝  ╚═╝╚═╝  ╚═╝     ╚══▀▀═╝  ╚═════╝ ╚══════╝╚══════╝   ╚═╝   
                                                                                        
-";
+".Pastel("#ffe100");
         private string GameDescription = @"Welcome to Trivia Quest
 Battle your friends for the top score in silly trivia.";
 
@@ -55,10 +57,8 @@ Battle your friends for the top score in silly trivia.";
 
         private void GameIntro()
         {
-
             WriteLine(GameTitleArt);
             WriteLine(GameDescription);
-
         }
 
         private void Play()
@@ -121,6 +121,45 @@ What would you like to do?";
 
         }
 
+        private void WinScreen()
+        {
+            ForegroundColor = ConsoleColor.Green;
+            WriteLine(@"
+ /$$     /$$                 
+|  $$   /$$/                 
+ \  $$ /$$//$$$$$$  /$$   /$$
+  \  $$$$/|____  $$| $$  | $$
+   \  $$/  /$$$$$$$| $$  | $$
+    | $$  /$$__  $$| $$  | $$
+    | $$ |  $$$$$$$|  $$$$$$$
+    |__/  \_______/ \____  $$
+                    /$$  | $$
+                   |  $$$$$$/
+                    \______/ 
+");
+            ResetColor();
+        }
+
+        private void LoseScreen()
+        {
+            ForegroundColor = ConsoleColor.Red;
+            WriteLine(@"
+                                        
+                                        
+  .--.     .--.      .-..       .--.    
+ /    \   /    \    /    \    /  _  \   
+|  .-. ; |  .-. ;  ' .-,  ;  . .' `. ;  
+| |  | | | |  | |  | |  . |  | '   | |  
+| |  | | | |  | |  | |  | |  _\_`.(___) 
+| |  | | | |  | |  | |  | | (   ). '.   
+| '  | | | '  | |  | |  ' |  | |  `\ |  
+'  `-' / '  `-' /  | `-'  '  ; '._,' '  
+ `.__.'   `.__.'   | \__.'    '.___.'   
+                   | |                  
+                  (___)                 
+");
+            ResetColor();
+        }
 
         private void FirstChoice()
         {
@@ -167,6 +206,17 @@ What would you like to do?";
                 }
             }
 
+            Clear();
+
+            if (CurrentPlayer.Score < triviaItems.Length)
+            {
+                LoseScreen();
+            }
+            else
+            {
+                WinScreen();
+            }
+
             WriteLine($"\nThanks for playing {CurrentPlayer.Name}");
             WriteLine($"Your score: {CurrentPlayer.Score}/{triviaItems.Length}");
 
@@ -185,7 +235,7 @@ What would you like to do?";
 
         private void ExitGame()
         {
-            WriteLine($"\nThanks for playing {CurrentPlayer.Name}");
+            WriteLine($"\nThanks for playing...");
             ConsoleUtils.QuitApplication();
         }
         
